@@ -1,0 +1,15 @@
+C:\Users\Admin Stagiaire\source\repos\FormationCSharpInterNantes\FormationCSharpInterNantes\bin\Debug\net6.0\FormationCSharpInterNantes.exe
+C:\Users\Admin Stagiaire\source\repos\FormationCSharpInterNantes\FormationCSharpInterNantes\bin\Debug\net6.0\FormationCSharpInterNantes.deps.json
+C:\Users\Admin Stagiaire\source\repos\FormationCSharpInterNantes\FormationCSharpInterNantes\bin\Debug\net6.0\FormationCSharpInterNantes.runtimeconfig.json
+C:\Users\Admin Stagiaire\source\repos\FormationCSharpInterNantes\FormationCSharpInterNantes\bin\Debug\net6.0\FormationCSharpInterNantes.dll
+C:\Users\Admin Stagiaire\source\repos\FormationCSharpInterNantes\FormationCSharpInterNantes\bin\Debug\net6.0\FormationCSharpInterNantes.pdb
+C:\Users\Admin Stagiaire\source\repos\FormationCSharpInterNantes\FormationCSharpInterNantes\obj\Debug\net6.0\FormationCSharpInterNantes.csproj.AssemblyReference.cache
+C:\Users\Admin Stagiaire\source\repos\FormationCSharpInterNantes\FormationCSharpInterNantes\obj\Debug\net6.0\FormationCSharpInterNantes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Admin Stagiaire\source\repos\FormationCSharpInterNantes\FormationCSharpInterNantes\obj\Debug\net6.0\FormationCSharpInterNantes.AssemblyInfoInputs.cache
+C:\Users\Admin Stagiaire\source\repos\FormationCSharpInterNantes\FormationCSharpInterNantes\obj\Debug\net6.0\FormationCSharpInterNantes.AssemblyInfo.cs
+C:\Users\Admin Stagiaire\source\repos\FormationCSharpInterNantes\FormationCSharpInterNantes\obj\Debug\net6.0\FormationCSharpInterNantes.csproj.CoreCompileInputs.cache
+C:\Users\Admin Stagiaire\source\repos\FormationCSharpInterNantes\FormationCSharpInterNantes\obj\Debug\net6.0\FormationCSharpInterNantes.dll
+C:\Users\Admin Stagiaire\source\repos\FormationCSharpInterNantes\FormationCSharpInterNantes\obj\Debug\net6.0\refint\FormationCSharpInterNantes.dll
+C:\Users\Admin Stagiaire\source\repos\FormationCSharpInterNantes\FormationCSharpInterNantes\obj\Debug\net6.0\FormationCSharpInterNantes.pdb
+C:\Users\Admin Stagiaire\source\repos\FormationCSharpInterNantes\FormationCSharpInterNantes\obj\Debug\net6.0\FormationCSharpInterNantes.genruntimeconfig.cache
+C:\Users\Admin Stagiaire\source\repos\FormationCSharpInterNantes\FormationCSharpInterNantes\obj\Debug\net6.0\ref\FormationCSharpInterNantes.dll

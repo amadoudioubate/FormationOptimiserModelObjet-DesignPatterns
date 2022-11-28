@@ -9,6 +9,8 @@ Console.WriteLine("Hello, World!");
 // Pour 
 //var produitDao = new();
 //ProduitDao produitDao = new();
+// Il faut ProduitDao utilise  Produit
+// Généricité c'est eviter qu'on passe aussi par object
 IDao<Produit> iproduitdao = new ProduitDao();
 
 iproduitdao.GetAll();

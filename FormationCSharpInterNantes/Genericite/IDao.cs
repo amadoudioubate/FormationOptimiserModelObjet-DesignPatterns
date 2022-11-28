@@ -6,7 +6,15 @@ using System.Threading.Tasks;
 
 namespace FormationCSharpInterNantes.Genericite
 {
-    internal interface IDao<TTable> where TTable : TableBase
+    // Type générique est defini dans IDao<TTable> donc IDao<TTable, Tcle>; ça pouvait être TableCle ... rien avoir avec Tcle
+    // de TableBase
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TTable"></typeparam>
+    /// <typeparam name="Tcle"></typeparam>
+    internal interface IDao<TTable, Tcle> where TTable : TableBase<Tcle> // IDao<TTable, Tcle> générique qui utilise une autre générique
     {
         // TTable peut être remplacé par int par exemple mais ici TTable veut dire 
         // je ne connais avance le type

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FormationCSharpInterNantes.Genericite
 {
-    internal sealed class Produit : TableBase
+    internal sealed class Produit : TableBase<int>
     {
         public string Description { get; set; } = String.Empty;
 

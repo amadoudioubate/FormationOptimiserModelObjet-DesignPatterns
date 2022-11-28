@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace FormationCSharpInterNantes.Genericite
 {
-    internal class TableBase
+    internal abstract class TableBase
     {
+        public int Id { get; set; } 
     }
 }

@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using FormationCSharpInterNantes.Encapsulation;
 using FormationCSharpInterNantes.Genericite;
 
 Console.WriteLine("Hello, World!");
@@ -42,9 +43,16 @@ lp.Sort((Produit p1, Produit p2) =>
 });
 lp.ForEach(p => Console.WriteLine(p.Description + " : " + p.Prix));
 
+// La fonction Func (delegate) prend un paramètre double et retorune un double
+// Func prend 17 paramètre au maximum
 Func<double, double> pow2 = x => Math.Pow(x, 2);
 double resP = pow2(23);
 Console.WriteLine(resP);
+
+// Deux paramètres double, double et en sortie un double
+Func<double, double, double> pow2Bis = (x1,x2) => Math.Pow(x1, x2);
+double resPBis = pow2Bis(23,10);
+Console.WriteLine(resPBis);
 
 
 
@@ -83,4 +91,17 @@ public bool Find(Predicat callback)
 }
 
 Find((c) => c.Id == Produit.Id));*/
+#endregion
+
+#region Encapsulation
+var r = new Rectangle(12, 36);
+//var res = r.Longueur * r.Largeur; // Est ce que j'ai besoin de Largeur ou Longueur individuellement?
+// ici non pour respecter le principe de l'encapsulation on crée une méthode Aire()
+// Comme je n'ai pas besoin d'inviduellement Longueur et Largeur , je les mets en private, ça m'évitera 
+// d'eviter d'exposer la structure interne de mon objet rectangle r
+r.Aire();
+
+// Pour respecter le principe de l'ancapsulation pour eviter dans le program.cs Longueur = 24, Largeur = 50
+r.Redim(24, 50);
+
 #endregion

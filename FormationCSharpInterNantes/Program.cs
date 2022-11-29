@@ -1,6 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using FormationCSharpInterNantes.Encapsulation;
+using FormationCSharpInterNantes.EntiteVsObjetValeur;
 using FormationCSharpInterNantes.Genericite;
+using System.ComponentModel;
 
 Console.WriteLine("Hello, World!");
 
@@ -105,3 +107,20 @@ r.Aire();
 r.Redim(24, 50);
 
 #endregion
+
+#region EntitesVSObjectValeur
+
+var e1 = new Entreprise(1, "Dawan", new Geolocalisation(2.3527, 48.8543));
+var e2 = new Entreprise(2, "Jehan", new Geolocalisation(3.37, 48.8543));
+
+int compParNom = e1.CompareTo(e2);
+int compParLocalisation = e1.CompareParLocalisation(e2);
+
+List<Entreprise> lstE = new() { e2, e1 };
+lstE.Sort();
+lstE.ForEach(e => Console.WriteLine(e.Nom));
+
+#endregion
+
+
+Console.ReadKey();

@@ -17,7 +17,7 @@ namespace FormationCSharpInterNantes.Encapsulation
             set
             {
                 if (value < 0) throw new ArgumentOutOfRangeException("La longueur ne peut pas être négative");
-                else _longueur = value;
+                _longueur = value;
             }
         }
         private double Largeur 
@@ -26,7 +26,9 @@ namespace FormationCSharpInterNantes.Encapsulation
             set
             {
                 if (value < 0) throw new ArgumentOutOfRangeException("La largeur ne peut pas être négative");
-                else _largeur = value;
+                //else _largeur = value; else pas obligatoire car si Exception lévée ça stop le programme donc pour optimiser 
+                                         // un p mon code on enlève else
+                _largeur = value;
             }  
                 
         }
@@ -37,8 +39,12 @@ namespace FormationCSharpInterNantes.Encapsulation
 
         public Rectangle(double longueur, double largeur)
         {
-            Longueur = longueur;
-            Largeur = largeur;
+            //Longueur = longueur;
+            //Largeur = largeur;
+            // Pour optimiser un p mon code on peut utiliser la méthode Redim dans le constructeur pour éviter de repéter
+            // le code Longueur = longueur;
+            //         Largeur = largeur;
+            Redim(longueur, largeur);
         }
 
         #endregion
@@ -51,6 +57,7 @@ namespace FormationCSharpInterNantes.Encapsulation
         }
 
         // Pour respecter le principe de l'ancapsulation pour eviter dans le program.cs Longueur = 24, Largeur = 50
+        // ça nous permet de mettre les propriétés setter et getter en private
         public void Redim(double longueur, double largeur) 
         {
             Longueur = longueur;

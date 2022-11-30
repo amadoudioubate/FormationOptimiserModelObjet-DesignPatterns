@@ -1,14 +1,17 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using FormationCSharpInterNantes.Aggregation;
+using FormationCSharpInterNantes.Aggregation.AggregationFaible;
 using FormationCSharpInterNantes.Encapsulation;
 using FormationCSharpInterNantes.EntiteVsObjetValeur;
 using FormationCSharpInterNantes.Genericite;
+
 using System.ComponentModel;
 
 Console.WriteLine("Hello, World!");
 
 #region Généricité
 
+Console.WriteLine("\n********************** GENERICITE ****************************\n");
 // Je vais créer mon DAO pour accéder à mon produit on peut mettre var si on v pas spécifier le type
 // Pour 
 //var produitDao = new();
@@ -23,7 +26,7 @@ IDao<Produit, int> iproduitdao = new ProduitDao();
 #endregion
 
 #region Expressions Lamda
-
+Console.WriteLine("\n********************** EXPRESSIONS LAMDA ****************************\n");
 // Thread c'est un fil d'éxécution 
 Thread thread = new(() => 
 {
@@ -97,6 +100,7 @@ Find((c) => c.Id == Produit.Id));*/
 #endregion
 
 #region Encapsulation
+Console.WriteLine("\n********************** ENCAPSULATION ****************************\n");
 var r = new Rectangle(12, 36);
 //var res = r.Longueur * r.Largeur; // Est ce que j'ai besoin de Largeur ou Longueur individuellement?
 // ici non pour respecter le principe de l'encapsulation on crée une méthode Aire()
@@ -110,6 +114,7 @@ r.Redim(24, 50);
 #endregion
 
 #region EntitesVSObjectValeur
+Console.WriteLine("\n********************** ENTITES OBJET VALEUR ****************************\n");
 
 var e1 = new Entreprise(1, "Dawan", new Geolocalisation(2.3527, 48.8543));
 var e2 = new Entreprise(2, "Jehan", new Geolocalisation(3.37, 48.8543));
@@ -125,6 +130,7 @@ lstE.ForEach(e => Console.WriteLine(e.Nom));
 
 
 #region Aggregation
+Console.WriteLine("\n********************** AGGREGATION ****************************\n");
 
 var v = new Voiture(new Moteur("diesel")); // Aggrégation forte car voiture ne peut pas exister sans moteur
 v.Garer(new Parking()); // Association
@@ -133,5 +139,26 @@ v.Garer(new Parking()); // Association
 //var v1 = new Voiture { Moteur = new Moteur { Motorisation = "hydrogène" } }; // Constructeur par propriété
 
 var v2 = new Voiture("hydrogène"); // Composition
+
+
+// Aggregation Faible : Adresse fait partie du client
+// Ici client serait une entité et l'adresse un objet de valeur
+var client = new Client
+{
+    Nom = "Doe",
+    Prenom = "John",
+    Adresse = new()
+    {
+        Num = 15,
+        Rue = "Vincent Gâche"
+    }
+};
+#endregion
+
+#region TP2 Tell Don't ASK 
+Console.WriteLine("\n********************** Delivery ****************************\n");
+
+
+
 #endregion
 Console.ReadKey();

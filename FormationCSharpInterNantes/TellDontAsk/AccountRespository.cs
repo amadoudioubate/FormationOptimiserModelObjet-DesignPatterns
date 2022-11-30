@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace FormationCSharpInterNantes.TellDontAsk
 {
-    internal class AccountRespository
+    internal class AccountRespository : IAccountRepository
     {
+        public Account FindById(int accountId)
+        {
+            return null;
+        }
+
+        public void Save(Account account)
+        {
+            
+        }
     }
 }

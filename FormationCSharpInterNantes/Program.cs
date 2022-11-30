@@ -1,4 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using FormationCSharpInterNantes.Aggregation;
 using FormationCSharpInterNantes.Encapsulation;
 using FormationCSharpInterNantes.EntiteVsObjetValeur;
 using FormationCSharpInterNantes.Genericite;
@@ -123,4 +124,14 @@ lstE.ForEach(e => Console.WriteLine(e.Nom));
 #endregion
 
 
+#region Aggregation
+
+var v = new Voiture(new Moteur("diesel")); // Aggrégation forte car voiture ne peut pas exister sans moteur
+v.Garer(new Parking()); // Association
+
+//v.Moteur.Motorisation = "hydrogène"; // Problème on doit pas changer moteur d'une voiture comme ça
+//var v1 = new Voiture { Moteur = new Moteur { Motorisation = "hydrogène" } }; // Constructeur par propriété
+
+var v2 = new Voiture("hydrogène"); // Composition
+#endregion
 Console.ReadKey();

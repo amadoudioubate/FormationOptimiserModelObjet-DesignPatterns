@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FormationCSharpInterNantes.TellDontAsk
+﻿namespace FormationCSharpInterNantes.TellDontAsk
 {
     internal interface IAccountRepository
     {
+        Account FindById(int accountId);
+
+        void Save(Account account);
     }
 }

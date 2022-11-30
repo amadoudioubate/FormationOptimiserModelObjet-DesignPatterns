@@ -8,5 +8,6 @@ namespace FormationCSharpInterNantes.TellDontAsk
 {
     internal interface IAccountService
     {
+        void Withdraw(int accountId, double amount);
     }
 }

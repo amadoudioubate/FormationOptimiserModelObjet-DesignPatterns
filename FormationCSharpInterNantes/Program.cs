@@ -4,6 +4,7 @@ using FormationCSharpInterNantes.Aggregation.AggregationFaible;
 using FormationCSharpInterNantes.DesignPatterns.Structure.Adapter;
 using FormationCSharpInterNantes.DesignPatterns.Structure.Bride.Abstraction;
 using FormationCSharpInterNantes.DesignPatterns.Structure.Bride.Implementation;
+using FormationCSharpInterNantes.DesignPatterns.Structure.Decorator;
 using FormationCSharpInterNantes.Encapsulation;
 using FormationCSharpInterNantes.EntiteVsObjetValeur;
 using FormationCSharpInterNantes.Genericite;
@@ -159,8 +160,8 @@ var client = new Client
 #region Design Patterns - Adapter
 Console.WriteLine("\n********************** Design Patterns - Adapter ****************************\n");
 
-IJsonAdapter adapter = new JsonAdapter(new ContactRepository());
-string json = adapter.RecupererContactJson("contacts.xml");
+//IJsonAdapter adapter = new JsonAdapter(new ContactRepository());
+//string json = adapter.RecupererContactJson("contacts.xml");
 
 #endregion
 
@@ -171,6 +172,29 @@ IAppareil tv = new TV();
 var telecommande = new TelecommandeBasique(tv);
 telecommande.ChangerCanal(2);
 telecommande.DefinirAppaeil(new Radio());
+
+#endregion
+
+#region Design Patterns - Decorator
+Console.WriteLine("\n********************** Design Patterns - Decorator ****************************\n");
+
+IVoiture voiture = new VoitureBasique();
+voiture.Assembler();
+Console.WriteLine("---------------");
+
+
+voiture = new SportDecorator(voiture);
+voiture.Assembler();
+Console.WriteLine("---------------");
+
+voiture = new LuxeDecorator(voiture);
+voiture.Assembler();
+Console.WriteLine("---------------");
+
+// Autre solution
+
+IVoiture voitureLuxeSport = new LuxeDecorator(new SportDecorator(new VoitureBasique()));
+voitureLuxeSport.Assembler();   
 
 #endregion
 Console.ReadKey();

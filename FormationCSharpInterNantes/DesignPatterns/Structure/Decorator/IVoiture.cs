@@ -8,5 +8,6 @@ namespace FormationCSharpInterNantes.DesignPatterns.Structure.Decorator
 {
     internal interface IVoiture
     {
+        void Assembler();
     }
 }

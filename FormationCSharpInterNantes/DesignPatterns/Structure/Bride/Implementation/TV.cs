@@ -4,27 +4,28 @@
     {
         void IAppareil.Allumer()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         void IAppareil.ChangerCanal(int chaine)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         void IAppareil.ChangerVolume(int volume)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         bool IAppareil.EstAllume()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
+            return true;
         }
 
         void IAppareil.Eteindre()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }

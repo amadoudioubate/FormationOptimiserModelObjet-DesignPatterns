@@ -5,6 +5,7 @@ using FormationCSharpInterNantes.DesignPatterns.Structure.Adapter;
 using FormationCSharpInterNantes.DesignPatterns.Structure.Bride.Abstraction;
 using FormationCSharpInterNantes.DesignPatterns.Structure.Bride.Implementation;
 using FormationCSharpInterNantes.DesignPatterns.Structure.Decorator;
+using FormationCSharpInterNantes.DesignPatterns.Structure.Proxy;
 using FormationCSharpInterNantes.Encapsulation;
 using FormationCSharpInterNantes.EntiteVsObjetValeur;
 using FormationCSharpInterNantes.Genericite;
@@ -194,7 +195,21 @@ Console.WriteLine("---------------");
 // Autre solution
 
 IVoiture voitureLuxeSport = new LuxeDecorator(new SportDecorator(new VoitureBasique()));
-voitureLuxeSport.Assembler();   
+voitureLuxeSport.Assembler();
+
+#endregion
+
+#region Design Patterns - Proxy
+Console.WriteLine("\n********************** Design Patterns - Proxy ****************************\n");
+
+// Sans passer par le proxy
+IMessage message = new MessageUtilisateur("Bonjour");
+Console.WriteLine(message.RecupererContenu());
+
+
+// En passant par le proxy
+IMessage messageProxy = new ProxyMessage(new MessageUtilisateur("Bonjour"));
+Console.WriteLine(message.RecupererContenu());
 
 #endregion
 Console.ReadKey();

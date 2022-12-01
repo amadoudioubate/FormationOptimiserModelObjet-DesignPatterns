@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace FormationCSharpInterNantes.DesignPatterns.Structure.Adapter
 {
-    internal class Contact
+    internal interface IJsonAdapter // Target dans le diagramme UML
     {
-        public int Id { get; set; }
-        public string Nom { get; set; }
+        string RecupererContactJson(string cheminFichier);
     }
 }

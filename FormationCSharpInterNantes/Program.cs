@@ -1,11 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using FormationCSharpInterNantes.Aggregation;
 using FormationCSharpInterNantes.Aggregation.AggregationFaible;
+using FormationCSharpInterNantes.DesignPatterns.Structure.Adapter;
+using FormationCSharpInterNantes.DesignPatterns.Structure.Bride.Abstraction;
+using FormationCSharpInterNantes.DesignPatterns.Structure.Bride.Implementation;
 using FormationCSharpInterNantes.Encapsulation;
 using FormationCSharpInterNantes.EntiteVsObjetValeur;
 using FormationCSharpInterNantes.Genericite;
-
-using System.ComponentModel;
 
 Console.WriteLine("Hello, World!");
 
@@ -155,10 +156,21 @@ var client = new Client
 };
 #endregion
 
-#region TP2 Tell Don't ASK 
-Console.WriteLine("\n********************** Delivery ****************************\n");
+#region Design Patterns - Adapter
+Console.WriteLine("\n********************** Design Patterns - Adapter ****************************\n");
 
+IJsonAdapter adapter = new JsonAdapter(new ContactRepository());
+string json = adapter.RecupererContactJson("contacts.xml");
 
+#endregion
+
+#region Design Patterns - Bride (Pont)
+Console.WriteLine("\n********************** Design Patterns - Bride (Pont) ****************************\n");
+
+IAppareil tv = new TV();
+var telecommande = new TelecommandeBasique(tv);
+telecommande.ChangerCanal(2);
+telecommande.DefinirAppaeil(new Radio());
 
 #endregion
 Console.ReadKey();

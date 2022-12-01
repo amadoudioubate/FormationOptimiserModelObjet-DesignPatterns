@@ -8,5 +8,8 @@ namespace FormationCSharpInterNantes.DesignPatterns.Structure.Adapter
 {
     internal interface IContactRepository
     {
+        string RecupererContactXml(string cheminFichier);
+
+        List<Contact> DepuisXml(string xml);
     }
 }

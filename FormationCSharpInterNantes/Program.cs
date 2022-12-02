@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using FormationCSharpInterNantes.Aggregation;
 using FormationCSharpInterNantes.Aggregation.AggregationFaible;
+using FormationCSharpInterNantes.DesignPatterns.Comportement.ChainOfResponsability;
 using FormationCSharpInterNantes.DesignPatterns.Structure.Adapter;
 using FormationCSharpInterNantes.DesignPatterns.Structure.Bride.Abstraction;
 using FormationCSharpInterNantes.DesignPatterns.Structure.Bride.Implementation;
@@ -9,8 +10,8 @@ using FormationCSharpInterNantes.DesignPatterns.Structure.Proxy;
 using FormationCSharpInterNantes.Encapsulation;
 using FormationCSharpInterNantes.EntiteVsObjetValeur;
 using FormationCSharpInterNantes.Genericite;
+using static FormationCSharpInterNantes.DesignPatterns.Comportement.ChainOfResponsability.Plainte;
 
-Console.WriteLine("Hello, World!");
 
 #region Généricité
 
@@ -210,6 +211,28 @@ Console.WriteLine(message.RecupererContenu());
 // En passant par le proxy
 IMessage messageProxy = new ProxyMessage(new MessageUtilisateur("Bonjour"));
 Console.WriteLine(message.RecupererContenu());
+
+#endregion
+
+#region Design Patterns - Chain Of Responsability
+
+Console.WriteLine("\n************************* Design Patterns - Chain Of Responsability *****************************\n");
+// La chaine d'objets qui va traiter notre plainte
+// Si je mets Formateur ou DirPeda en premier ça ne change rien car on test sur eux
+// Si le formateur voit que req type == 2 , il passe à son successeur DirPeda et inverssement 
+// Le directeur doit être forcement le dernier de la chaine car on ne fait pas de test sur lui
+MembreEquipe chaine = new Formateur("Florian", new DirPeda("Deny", new Directeur("Jérome", null)));
+
+Console.WriteLine("\n-------------- REQ 1 -----------------\n");
+chaine.Handle(new Plainte(123, 1, "req1", EtatPlainte.Ouvert));
+
+
+Console.WriteLine("\n-------------- REQ 2 -----------------\n");
+chaine.Handle(new Plainte(124, 2, "req2", EtatPlainte.Ouvert));
+
+
+Console.WriteLine("\n-------------- REQ 3 -----------------\n");
+chaine.Handle(new Plainte(123, 3, "req3", EtatPlainte.Ouvert));
 
 #endregion
 Console.ReadKey();

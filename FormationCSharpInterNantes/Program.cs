@@ -2,6 +2,7 @@
 using FormationCSharpInterNantes.Aggregation;
 using FormationCSharpInterNantes.Aggregation.AggregationFaible;
 using FormationCSharpInterNantes.DesignPatterns.Comportement.ChainOfResponsability;
+using FormationCSharpInterNantes.DesignPatterns.Comportement.Observer.Exemple2;
 using FormationCSharpInterNantes.DesignPatterns.Structure.Adapter;
 using FormationCSharpInterNantes.DesignPatterns.Structure.Bride.Abstraction;
 using FormationCSharpInterNantes.DesignPatterns.Structure.Bride.Implementation;
@@ -11,7 +12,9 @@ using FormationCSharpInterNantes.Encapsulation;
 using FormationCSharpInterNantes.EntiteVsObjetValeur;
 using FormationCSharpInterNantes.Genericite;
 using static FormationCSharpInterNantes.DesignPatterns.Comportement.ChainOfResponsability.Plainte;
-
+//using FormationCSharpInterNantes.DesignPatterns.Comportement.Observer.Exemple1;
+using ProduitObserver = FormationCSharpInterNantes.DesignPatterns.Comportement.Observer.Exemple1.Produit; // Alias using pour renommer Produit par ProduitObserver pour resoudre le pb de conflit car on a deux classe Produit dans le projet
+using ContactObserver = FormationCSharpInterNantes.DesignPatterns.Comportement.Observer.Exemple2.Contact;
 
 #region Généricité
 
@@ -235,4 +238,31 @@ Console.WriteLine("\n-------------- REQ 3 -----------------\n");
 chaine.Handle(new Plainte(123, 3, "req3", EtatPlainte.Ouvert));
 
 #endregion
-Console.ReadKey();
+
+#region Design Patterns - Observer 1
+Console.WriteLine("\n************************ Design Patterns - Observer 1 *************************\n");
+var produit = new ProduitObserver { Description = "RTX 4090", Prix = 2500 };
+
+produit.Attacher(new FormationCSharpInterNantes.DesignPatterns.Comportement.Observer.Exemple1.Client("Amadou", "dioubateamadou@yahoo.fr"));
+produit.Attacher(new FormationCSharpInterNantes.DesignPatterns.Comportement.Observer.Exemple1.Client("Saran", "saransacko95@yahoo.fr"));
+
+// Encapsulation est bien respectée, ici on n'a besoin d'accéder au Prix depuis l'exterieur et en plus on passe par propriété Prix
+produit.Prix = 2000;
+
+#endregion
+
+#region Design Patterns - Observer 2
+Console.WriteLine("\n************************ Design Patterns - Observer 2 *************************\n");
+var article = new Article { Description = "RTX 4090", Prix = 2000 };
+
+IDisposable disC1 = article.Subscribe(new ContactObserver { Nom = "Amadou" });
+IDisposable disC2 = article.Subscribe(new ContactObserver { Nom = "Saran" });
+
+article.Prix = 1500; // Le changement déclenche les notifications
+
+disC1.Dispose(); // unsubscribe de C1
+
+article.Prix = 1000;
+
+#endregion
+
